@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 26% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 26% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 26% 14%;
+
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 100% 95%;
+    --primary-dark: 210 100% 25%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 26% 14%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 220 13% 46%;
+
+    --accent: 210 80% 92%;
+    --accent-foreground: 220 26% 14%;
+
+    --dental-blue: 210 100% 45%;
+    --dental-light: 210 100% 95%;
+    --dental-soft: 210 60% 88%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 45%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 95%), hsl(0 0% 100%));
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(210 100% 35%));
+    --gradient-soft: linear-gradient(180deg, hsl(210 100% 98%), hsl(210 60% 95%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(210 100% 45% / 0.1);
+    --shadow-dental: 0 8px 30px -8px hsl(210 100% 45% / 0.15);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 26% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 26% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 26% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 100% 15%;
+    --primary-dark: 210 100% 65%;
+
+    --secondary: 220 26% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 26% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 220 26% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --dental-blue: 210 100% 55%;
+    --dental-light: 210 100% 15%;
+    --dental-soft: 210 60% 25%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 26% 15%;
+    --input: 220 26% 15%;
+    --ring: 210 100% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 26% 9%), hsl(220 26% 7%));
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 45%));
+    --gradient-soft: linear-gradient(180deg, hsl(220 26% 9%), hsl(220 26% 12%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(210 100% 55% / 0.2);
+    --shadow-dental: 0 8px 30px -8px hsl(210 100% 55% / 0.25);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .hero-text-3d {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px hsl(210 100% 45% / 0.3);
+    transform: perspective(300px) rotateX(10deg);
+  }
+
+  .dental-gradient {
+    background: var(--gradient-soft);
+  }
+
+  .dental-shadow {
+    box-shadow: var(--shadow-dental);
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-dental);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
